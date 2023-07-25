@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'integers_app',
+    'chat_app',
 ]
 
 MIDDLEWARE = [
@@ -74,6 +75,13 @@ TEMPLATES = [
 WSGI_APPLICATION = 'celery_project.wsgi.application'
 
 ASGI_APPLICATION = 'celery_project.asgi.application'
+
+#ONLY FOR PRACTICE, YOU REDDIS IN PRODUCTION
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels.layers.InMemoryChannelLayer',
+    }
+}
 
 
 # Database

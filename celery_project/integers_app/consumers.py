@@ -1,12 +1,13 @@
-from channels.generic.websocket import WebsocketConsumer
+from channels.generic.websocket import AsyncWebsocketConsumer
 import json
+import asyncio
 from random import randint
-import time
 
-class IntegerConsumer(WebsocketConsumer):
-    def connect(self):
-        self.accept()
+class IntegerConsumer(AsyncWebsocketConsumer):
+    async def connect(self):
+        await self.accept()
 
+        # Use an asynchronous loop to send 1000 random integers to the client
         for i in range(1000):
-            self.send(json.dumps({'message': randint(1, 100)}))
-            time.sleep(1)
+            await self.send(json.dumps({'message': randint(1, 100)}))
+            await asyncio.sleep(1)
