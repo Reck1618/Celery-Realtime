@@ -21,7 +21,7 @@
 
         socket.onmessage = function(event) {
             var data = JSON.parse(event.data);
-            console.log(data);
+            // console.log(data);
             document.querySelector('#integer_app').innerText = data.message;
         }
     </script>
