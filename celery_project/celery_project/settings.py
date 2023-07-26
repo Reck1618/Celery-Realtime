@@ -76,12 +76,6 @@ WSGI_APPLICATION = 'celery_project.wsgi.application'
 
 ASGI_APPLICATION = 'celery_project.asgi.application'
 
-#ONLY FOR PRACTICE, YOU REDDIS IN PRODUCTION
-CHANNEL_LAYERS = {
-    'default': {
-        'BACKEND': 'channels.layers.InMemoryChannelLayer',
-    }
-}
 
 
 # Database
@@ -91,6 +85,17 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
+
+#ONLY FOR PRACTICE, YOU REDDIS IN PRODUCTION
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG':{
+            'hosts': [('localhost', 6379)],
+
+        }
     }
 }
 
@@ -135,3 +140,7 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+STATICFILES_DIRS = [
+    BASE_DIR.joinpath('celery_project/static/'),
+]

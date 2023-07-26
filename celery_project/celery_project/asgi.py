@@ -14,8 +14,9 @@ from channels.routing import ProtocolTypeRouter, URLRouter
 from channels.auth import AuthMiddlewareStack
 from integers_app.routing import integers_urlpatterns
 from chat_app.routing import chat_urlpatterns
+from graph_app.routing import graph_urlpatterns
 
-ws_urlpatterns = integers_urlpatterns + chat_urlpatterns
+ws_urlpatterns = integers_urlpatterns + chat_urlpatterns + graph_urlpatterns 
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'celery_project.settings')
 
