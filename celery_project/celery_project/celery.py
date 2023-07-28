@@ -10,7 +10,7 @@ app = Celery('celery_project')
 app.config_from_object('django.conf:settings', namespace='CELERY')
 
 app.conf.beat_schedule = {
-    'get-joke-3-seconds': {
+    'get-joke-5-seconds': {
         'task': 'jokes.tasks.get_joke',
         'schedule': 5.0,
     },
