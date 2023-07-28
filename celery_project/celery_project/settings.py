@@ -40,6 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'integers_app',
     'chat_app',
+    'graph_app',
+    'celery_app',
+    'jokes',
 ]
 
 MIDDLEWARE = [
@@ -77,6 +80,7 @@ WSGI_APPLICATION = 'celery_project.wsgi.application'
 ASGI_APPLICATION = 'celery_project.asgi.application'
 
 
+CELERY_BROKER_URL = 'redis://localhost:6379'
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases

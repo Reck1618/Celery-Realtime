@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Chuck Norris Jokes</h1>
+    <h2 id="joke"> No Jokes</h2>
+
+    <script>
+        var socket = new WebSocket('ws://' + window.location.host + '/ws/jokes/');
+
+        socket.onmessage = function(event) {
+            var data = JSON.parse(event.data);
+            console.log("hello world");
+            document.querySelector('#joke').innerText = data.text;
+        }
+
+    </script>
+</body>
+</html>

@@ -22,4 +22,5 @@ urlpatterns = [
     path('', include('integers_app.urls')),
     path('', include('chat_app.urls')),
     path('', include('graph_app.urls')),
+    path('', include('jokes.urls')),
 ]
